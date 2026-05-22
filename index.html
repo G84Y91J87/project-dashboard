@@ -2,314 +2,109 @@
 <html lang="nl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Project Dashboard</title>
+    <title>Project Dashboard</title>
 
-<style>
-
-*{
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
-body{
-    margin:0;
-    padding:24px;
-    background:#f1f5f9;
-    color:#1e293b;
-}
-
-.block{
-    background:#fff;
-    padding:20px;
-    border-radius:12px;
-    margin-bottom:16px;
-}
-
-.title-block{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-}
-
-.title-block h1{
-    margin:0;
-}
-
-h2{
-    margin-top:0;
-}
-
-.progress{
-    height:12px;
-    background:#ddd;
-    border-radius:999px;
-    overflow:hidden;
-    margin-top:10px;
-}
-
-.progress div{
-    height:100%;
-    width:0%;
-    background:#2563eb;
-    transition:.2s;
-}
-
-.tabs{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-}
-
-.tabs button,
-.actions button{
-    border:none;
-    padding:10px 14px;
-    border-radius:8px;
-    cursor:pointer;
-    background:#e2e8f0;
-    font-weight:bold;
-}
-
-.tabs button.active{
-    background:#2563eb;
-    color:#fff;
-}
-
-.actions button{
-    background:#2563eb;
-    color:#fff;
-}
-
-section{
-    display:none;
-}
-
-section.active{
-    display:block;
-}
-
-input,
-textarea{
-    width:100%;
-    padding:10px;
-    margin-bottom:10px;
-}
-
-textarea{
-    min-height:120px;
-}
-
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- TITEL -->
-<div class="block title-block">
-    <h1>Project Dashboard</h1>
-</div>
-
-<!-- PROGRESSIE -->
-<div class="block">
-
-    <h2>Voortgang</h2>
-
-    <strong id="progressText">0%</strong>
-
-    <div class="progress">
-        <div id="progressFill"></div>
+    <!-- TITEL -->
+    <div class="block title-block">
+        <h1>Project Dashboard</h1>
     </div>
 
-</div>
+    <!-- PROGRESSIE -->
+    <div class="block">
 
-<!-- EXPORT-->
-<div class="block">
+        <h2>Voortgang</h2>
 
-    <h2>Export</h2>
+        <strong id="progressText">0%</strong>
 
-    <div class="actions">
-
-        <button onclick="exportData()">Export</button>
-        <button onclick="file.click()">Import</button>
-        <button onclick="resetData()">Wissen</button>
+        <div class="progress">
+            <div id="progressFill"></div>
+        </div>
 
     </div>
 
-    <input type="file" id="file" hidden>
+    <!-- EXPORT -->
+    <div class="block">
 
-</div>
+        <h2>Export</h2>
 
-<!-- TABS -->
-<div class="block">
+        <div class="actions">
 
-    <h2>Navigatie</h2>
+            <button onclick="exportData()">Export</button>
+            <button onclick="file.click()">Import</button>
+            <button onclick="resetData()">Wissen</button>
 
-    <div class="tabs">
+        </div>
 
-        <button class="active" data-tab="start">Start</button>
-        <button data-tab="algemeen">Algemeen</button>
-        <button data-tab="opdracht">Opdracht</button>
-        <button data-tab="analyse">Analyse</button>
-        <button data-tab="feedback">Feedback</button>
-        <button data-tab="handleiding">Handleiding</button>
+        <input type="file" id="file" hidden>
 
     </div>
 
-</div>
+    <!-- TABS -->
+    <div class="block">
 
-<!-- CONTENT -->
-<div class="block">
+        <h2>Navigatie</h2>
 
-<section id="start" class="active">
-    <h2>Welkom</h2>
-    <p>Project dashboard voor leerlingen.</p>
-</section>
+        <div class="tabs">
 
-<section id="algemeen">
-    <h2>Algemeen</h2>
+            <button class="active" data-tab="start">Start</button>
+            <button data-tab="algemeen">Algemeen</button>
+            <button data-tab="opdracht">Opdracht</button>
+            <button data-tab="analyse">Analyse</button>
+            <button data-tab="feedback">Feedback</button>
+            <button data-tab="handleiding">Handleiding</button>
 
-    <input id="naam" placeholder="Naam">
-    <input id="klas" placeholder="Klas">
-    <input id="richting" placeholder="Richting">
-    <input id="schooljaar" placeholder="Schooljaar">
-</section>
+        </div>
 
-<section id="opdracht">
-    <h2>Opdracht</h2>
-</section>
+    </div>
 
-<section id="analyse">
-    <h2>Analyse</h2>
-    <textarea id="analyse"></textarea>
-</section>
+    <!-- CONTENT -->
+    <div class="block">
 
-<section id="feedback">
-    <h2>Feedback</h2>
-    <textarea id="feedback"></textarea>
-</section>
+        <section id="start" class="active">
+            <h2>Welkom</h2>
+            <p>Project dashboard voor leerlingen.</p>
+        </section>
 
-<section id="handleiding">
-    <h2>Handleiding</h2>
-    <textarea id="handleiding"></textarea>
-</section>
+        <section id="algemeen">
+            <h2>Algemeen</h2>
 
-</div>
+            <input id="naam" placeholder="Naam">
+            <input id="klas" placeholder="Klas">
+            <input id="richting" placeholder="Richting">
+            <input id="schooljaar" placeholder="Schooljaar">
+        </section>
 
-<script>
+        <section id="opdracht">
+            <h2>Opdracht</h2>
+        </section>
 
-/* ================= TABS ================= */
-document.querySelectorAll(".tabs button").forEach(button=>{
+        <section id="analyse">
+            <h2>Analyse</h2>
+            <textarea id="analyseText"></textarea>
+        </section>
 
-    button.onclick=()=>{
+        <section id="feedback">
+            <h2>Feedback</h2>
+            <textarea id="feedbackText"></textarea>
+        </section>
 
-        document.querySelector(".tabs .active")
-            .classList.remove("active");
+        <section id="handleiding">
+            <h2>Handleiding</h2>
+            <textarea id="handleidingText"></textarea>
+        </section>
 
-        document.querySelector("section.active")
-            .classList.remove("active");
+    </div>
 
-        button.classList.add("active");
-
-        document.getElementById(button.dataset.tab)
-            .classList.add("active");
-    };
-});
-
-/* ================= PROGRESS ================= */
-function updateProgress(){
-
-    const fields=document.querySelectorAll(
-        "input:not([type='file']), textarea"
-    );
-
-    let done=0;
-
-    fields.forEach(f=>{
-        if(f.value.trim()) done++;
-    });
-
-    const percent=Math.round(done/fields.length*100);
-
-    progressText.textContent=percent+"%";
-    progressFill.style.width=percent+"%";
-}
-
-document.addEventListener("input",updateProgress);
-
-/* ================= DATA ================= */
-function getData(){
-
-    const data={};
-
-    const fields=document.querySelectorAll(
-        "input:not([type='file']), textarea"
-    );
-
-    fields.forEach(f=>{
-        data[f.id]=f.value;
-    });
-
-    return data;
-}
-
-/* ================= EXPORT ================= */
-function exportData(){
-
-    const blob=new Blob(
-        [JSON.stringify(getData(),null,2)],
-        {type:"application/json"}
-    );
-
-    const a=document.createElement("a");
-
-    a.href=URL.createObjectURL(blob);
-    a.download="project.json";
-    a.click();
-}
-
-/* ================= IMPORT ================= */
-file.onchange=e=>{
-
-    const reader=new FileReader();
-
-    reader.onload=x=>{
-
-        const data=JSON.parse(x.target.result);
-
-        document.querySelectorAll(
-            "input:not([type='file']), textarea"
-        ).forEach(f=>{
-
-            f.value=data[f.id] || "";
-        });
-
-        updateProgress();
-    };
-
-    reader.readAsText(e.target.files[0]);
-};
-
-/* ================= RESET ================= */
-function resetData(){
-
-    if(!confirm("Alles wissen?")) return;
-
-    document.querySelectorAll(
-        "input:not([type='file']), textarea"
-    ).forEach(f=>f.value="");
-
-    updateProgress();
-}
-
-/* INIT */
-updateProgress();
-
-</script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
