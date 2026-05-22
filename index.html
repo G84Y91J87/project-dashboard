@@ -2,109 +2,371 @@
 <html lang="nl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Project Dashboard</title>
+<!-- INSTELLINGEN -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<!-- TITEL -->
+<title>Project Dashboard</title>
+
+<!-- STYLING -->
+<style>
+
+/* ALGEMEEN */
+*{
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+/* PAGINA */
+body{
+    margin:0;
+    padding:24px;
+    background:#f1f5f9;
+    color:#1e293b;
+}
+
+/* WITTE BLOKKEN */
+.block{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:16px;
+}
+
+/* TITEL BLOK */
+.title-block{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.title-block h1{
+    margin:0;
+}
+
+/* TITELS */
+h2{
+    margin-top:0;
+}
+
+/* PROGRESS BAR */
+.progress{
+    height:12px;
+    background:#ddd;
+    border-radius:999px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+/* BLAUWE BALK */
+.progress div{
+    height:100%;
+    width:0%;
+    background:#2563eb;
+    transition:.2s;
+}
+
+/* TAB KNOPPEN */
+.tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+/* KNOPPEN */
+.tabs button,
+.actions button{
+    border:none;
+    padding:10px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    background:#e2e8f0;
+    font-weight:bold;
+}
+
+/* ACTIEVE TAB */
+.tabs button.active{
+    background:#2563eb;
+    color:#fff;
+}
+
+/* FORMULIER ELEMENTEN */
+input,
+textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+}
+
+/* TEXTAREA */
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+/* VELD */
+.field{
+    margin-bottom:16px;
+}
+
+/* LABEL */
+.field label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+/* MELDING */
+.notice{
+    background:#e0f2fe;
+    border-left:4px solid #2563eb;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:16px;
+}
+
+/* VERBERG SECTIES */
+section{
+    display:none;
+}
+
+/* TOON ACTIEVE SECTIE */
+section.active{
+    display:block;
+}
+
+</style>
+
 </head>
 
 <body>
 
-    <!-- TITEL -->
-    <div class="block title-block">
-        <h1>Project Dashboard</h1>
+<!-- TITEL -->
+<div class="block title-block">
+
+    <h1>Project Dashboard</h1>
+
+</div>
+
+<!-- VOORTGANG -->
+<div class="block">
+
+    <h2>Voortgang</h2>
+
+    <!-- PROCENT -->
+    <strong id="progressText">0%</strong>
+
+    <!-- BALK -->
+    <div class="progress">
+        <div id="progressFill"></div>
     </div>
 
-    <!-- PROGRESSIE -->
-    <div class="block">
+</div>
 
-        <h2>Voortgang</h2>
+<!-- NAVIGATIE -->
+<div class="block">
 
-        <strong id="progressText">0%</strong>
+    <h2>Navigatie</h2>
 
-        <div class="progress">
-            <div id="progressFill"></div>
-        </div>
+    <div class="tabs">
+
+        <button class="tab active" data-tab="algemeen">
+            Algemeen
+        </button>
+
+        <button class="tab" data-tab="opdracht">
+            Opdracht
+        </button>
+
+        <button class="tab" data-tab="analyse">
+            Analyse
+        </button>
+
+        <button class="tab" data-tab="feedback">
+            Feedback
+        </button>
+
+        <button class="tab" data-tab="handleiding">
+            Handleiding
+        </button>
 
     </div>
 
-    <!-- EXPORT -->
-    <div class="block">
+</div>
 
-        <h2>Export</h2>
-
-        <div class="actions">
-
-            <button onclick="exportData()">Export</button>
-            <button onclick="file.click()">Import</button>
-            <button onclick="resetData()">Wissen</button>
-
-        </div>
-
-        <input type="file" id="file" hidden>
-
-    </div>
+<!-- CONTENT -->
+<div class="block">
 
     <!-- TABS -->
-    <div class="block">
+    <section id="algemeen" class="active"></section>
+    <section id="opdracht"></section>
+    <section id="analyse"></section>
+    <section id="feedback"></section>
+    <section id="handleiding"></section>
 
-        <h2>Navigatie</h2>
+</div>
 
-        <div class="tabs">
+<!-- JAVASCRIPT -->
+<script>
 
-            <button class="active" data-tab="start">Start</button>
-            <button data-tab="algemeen">Algemeen</button>
-            <button data-tab="opdracht">Opdracht</button>
-            <button data-tab="analyse">Analyse</button>
-            <button data-tab="feedback">Feedback</button>
-            <button data-tab="handleiding">Handleiding</button>
+//
+// MAAK EEN INPUT OF TEXTAREA
+//
+function field(label,id,type="input",placeholder="",value="",readonly=false){
+
+    return `
+        <div class="field">
+
+            <label for="${id}">
+                ${label}
+            </label>
+
+            ${
+                type === "textarea"
+                ? `<textarea id="${id}" placeholder="${placeholder}" ${readonly ? "readonly" : ""}>${value}</textarea>`
+                : `<input id="${id}" placeholder="${placeholder}" value="${value}" ${readonly ? "readonly" : ""}>`
+            }
 
         </div>
+    `;
+}
 
-    </div>
+//
+// MAAK EEN MELDING
+//
+function notice(text){
 
-    <!-- CONTENT -->
-    <div class="block">
+    return `
+        <div class="notice">
+            ${text}
+        </div>
+    `;
+}
 
-        <section id="start" class="active">
-            <h2>Welkom</h2>
-            <p>Project dashboard voor leerlingen.</p>
-        </section>
+//
+// TAB: ALGEMEEN
+//
+algemeen.innerHTML = `
+    <h2>Algemeen</h2>
 
-        <section id="algemeen">
-            <h2>Algemeen</h2>
+    ${notice("Vul eerst je basisgegevens in.")}
 
-            <input id="naam" placeholder="Naam">
-            <input id="klas" placeholder="Klas">
-            <input id="richting" placeholder="Richting">
-            <input id="schooljaar" placeholder="Schooljaar">
-        </section>
+    ${field("Naam","naam","input","Naam leerling")}
+    ${field("Klas","klas","input","Klas leerling")}
+    ${field("Richting","richting","input","Richting leerling")}
+    ${field("Schooljaar","schooljaar","input","Schooljaar leerling")}
+`;
 
-        <section id="opdracht">
-            <h2>Opdracht</h2>
-        </section>
+//
+// TAB: OPDRACHT
+//
+opdracht.innerHTML = `
+    <h2>Opdracht</h2>
 
-        <section id="analyse">
-            <h2>Analyse</h2>
-            <textarea id="analyseText"></textarea>
-        </section>
+    ${notice("Neem de opdracht grondig door.")}
 
-        <section id="feedback">
-            <h2>Feedback</h2>
-            <textarea id="feedbackText"></textarea>
-        </section>
+    ${field("Omschrijving","omschrijvingText","textarea","","",true)}
+`;
 
-        <section id="handleiding">
-            <h2>Handleiding</h2>
-            <textarea id="handleidingText"></textarea>
-        </section>
+//
+// TAB: ANALYSE
+//
+analyse.innerHTML = `
+    <h2>Analyse</h2>
 
-    </div>
+    ${notice("Ontwerp hier je IPO-lijst (interactieve elementen, input, vewerking en output)")}
 
-    <script src="script.js"></script>
+    ${field("Analyse","analyseText","textarea","","",false)}
+`;
+
+//
+// TAB: FEEDBACK
+//
+feedback.innerHTML = `
+    <h2>Feedback</h2>
+
+    ${field("Feedback","feedbackText","textarea")}
+`;
+
+//
+// TAB: HANDLEIDING
+//
+handleiding.innerHTML = `
+    <h2>Handleiding</h2>
+
+    ${field("Handleiding","handleidingText","textarea")}
+`;
+
+//
+// TAB WISSELEN
+//
+document.querySelectorAll(".tab").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        // MAAK ALLE TABS INACTIEF
+        document.querySelectorAll(".tab")
+            .forEach(tab => tab.classList.remove("active"));
+
+        // VERBERG ALLE SECTIES
+        document.querySelectorAll("section")
+            .forEach(section => section.classList.remove("active"));
+
+        // ACTIVEER GEKLIKTE TAB
+        button.classList.add("active");
+
+        // TOON BIJHORENDE SECTIE
+        document.getElementById(button.dataset.tab)
+            .classList.add("active");
+
+    });
+
+});
+
+//
+// UPDATE PROGRESS BAR
+//
+function updateProgress(){
+
+    // ALLE INPUTS EN TEXTAREAS
+    const fields = document.querySelectorAll("input, textarea");
+
+    let filled = 0;
+
+    // TEL INGEVULDE VELDEN
+    fields.forEach(field => {
+
+        if(field.value.trim() !== "") filled++;
+
+    });
+
+    // BEREKEN PROCENT
+    const progress = Math.round((filled / fields.length) * 100);
+
+    // UPDATE TEKST
+    progressText.textContent = progress + "%";
+
+    // UPDATE BALK
+    progressFill.style.width = progress + "%";
+}
+
+//
+// LUISTER NAAR WIJZIGINGEN
+//
+document.addEventListener("input", updateProgress);
+
+//
+// EERSTE UPDATE
+//
+updateProgress();
+
+</script>
 
 </body>
-
 </html>
