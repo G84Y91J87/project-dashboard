@@ -1,23 +1,28 @@
 //
 // MAAK EEN INPUT OF TEXTAREA
 //
-function field(label,id,type="input",placeholder="",value="",readonly=false){
+function updateProgress(){
 
-    return `
-        <div class="field">
+    // Enkel velden die niet readonly zijn
+    const fields = document.querySelectorAll(
+        "input:not([readonly]), textarea:not([readonly])"
+    );
 
-            <label for="${id}">
-                ${label}
-            </label>
+    let filled = 0;
 
-            ${
-                type === "textarea"
-                ? `<textarea id="${id}" placeholder="${placeholder}" ${readonly ? "readonly" : ""}>${value}</textarea>`
-                : `<input id="${id}" placeholder="${placeholder}" value="${value}" ${readonly ? "readonly" : ""}>`
-            }
+    fields.forEach(field => {
 
-        </div>
-    `;
+        if(field.value.trim() !== ""){
+            filled++;
+        }
+
+    });
+
+    const progress = Math.round((filled / fields.length) * 100);
+
+    progressText.textContent = progress + "%";
+
+    progressFill.style.width = progress + "%";
 }
 
 //
