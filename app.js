@@ -1,23 +1,23 @@
 //
 // MAAK EEN INPUT OF TEXTAREA
 //
-function updateProgress(){
+function field(label,id,type="input",placeholder="",value="",readonly=false){
 
-    const fields = [
-        ...document.querySelectorAll("input"),
-        ...document.querySelectorAll("textarea")
-    ].filter(field => !field.readOnly);
+    return `
+        <div class="field">
 
-    const filled = fields.filter(
-        field => field.value.trim() !== ""
-    ).length;
+            <label for="${id}">
+                ${label}
+            </label>
 
-    const progress = fields.length
-        ? Math.round((filled / fields.length) * 100)
-        : 0;
+            ${
+                type === "textarea"
+                ? `<textarea id="${id}" placeholder="${placeholder}" ${readonly ? "readonly" : ""}>${value}</textarea>`
+                : `<input id="${id}" placeholder="${placeholder}" value="${value}" ${readonly ? "readonly" : ""}>`
+            }
 
-    progressText.textContent = `${progress}%`;
-    progressFill.style.width = `${progress}%`;
+        </div>
+    `;
 }
 
 //
@@ -90,6 +90,7 @@ handleiding.innerHTML = `
     ${field("Handleiding","handleidingText","textarea")}
 `;
 
+
 //
 // TAB WISSELEN
 //
@@ -117,21 +118,21 @@ document.querySelectorAll(".tab").forEach(button => {
 //
 function updateProgress(){
 
-    const fields = document.querySelectorAll("input, textarea");
+    const fields = [
+        ...document.querySelectorAll("input"),
+        ...document.querySelectorAll("textarea")
+    ].filter(field => !field.readOnly);
 
-    let filled = 0;
+    const filled = fields.filter(
+        field => field.value.trim() !== ""
+    ).length;
 
-    fields.forEach(field => {
+    const progress = fields.length
+        ? Math.round((filled / fields.length) * 100)
+        : 0;
 
-        if(field.value.trim() !== "") filled++;
-
-    });
-
-    const progress = Math.round((filled / fields.length) * 100);
-
-    progressText.textContent = progress + "%";
-
-    progressFill.style.width = progress + "%";
+    progressText.textContent = `${progress}%`;
+    progressFill.style.width = `${progress}%`;
 }
 
 //
