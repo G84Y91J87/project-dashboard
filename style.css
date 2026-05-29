@@ -1,127 +1,21 @@
-/* ALGEMEEN */
-*{
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+/* HEADER + FOOTER samen */
+#header,
+#footer {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 10px;
+    background: #2f3f38;
+    color: #fff;
+
 }
 
-/* PAGINA */
-body{
-    margin:0;
-    padding:24px;
-    background:#f1f5f9;
-    color:#1e293b;
+#header {
+    border-bottom: 2px solid #1f2a25;
 }
 
-/* WITTE BLOKKEN */
-.block{
-    background:#fff;
-    padding:20px;
-    border-radius:12px;
-    margin-bottom:16px;
-}
-
-/* TITEL BLOK */
-.title-block{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-}
-
-.title-block h1{
-    margin:0;
-}
-
-/* TITELS */
-h2{
-    margin-top:0;
-}
-
-/* PROGRESS BAR */
-.progress{
-    height:12px;
-    background:#ddd;
-    border-radius:999px;
-    overflow:hidden;
-    margin-top:10px;
-}
-
-/* BLAUWE BALK */
-.progress div{
-    height:100%;
-    width:0%;
-    background:#2563eb;
-    transition:.2s;
-}
-
-/* TAB KNOPPEN */
-.tabs{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-}
-
-/* KNOPPEN */
-.tabs button,
-.actions button{
-    border:none;
-    padding:10px 14px;
-    border-radius:8px;
-    cursor:pointer;
-    background:#e2e8f0;
-    font-weight:bold;
-}
-
-/* ACTIEVE TAB */
-.tabs button.active{
-    background:#2563eb;
-    color:#fff;
-}
-
-/* FORMULIER ELEMENTEN */
-input,
-textarea{
-    width:100%;
-    padding:10px;
-    margin-bottom:10px;
-    border:1px solid #cbd5e1;
-    border-radius:8px;
-}
-
-/* TEXTAREA */
-textarea{
-    min-height:120px;
-    resize:vertical;
-}
-
-/* VELD */
-.field{
-    margin-bottom:16px;
-}
-
-/* LABEL */
-.field label{
-    display:block;
-    margin-bottom:6px;
-    font-weight:bold;
-}
-
-/* MELDING */
-.notice{
-    background:#e0f2fe;
-    border-left:4px solid #2563eb;
-    padding:12px;
-    border-radius:8px;
-    margin-bottom:16px;
-}
-
-/* VERBERG SECTIES */
-section{
-    display:none;
-}
-
-/* TOON ACTIEVE SECTIE */
-section.active{
-    display:block;
+#footer {
+    justify-content: center;
+    font-size: 12px;
+    border-top: 1px solid #1f2a25;
 }
