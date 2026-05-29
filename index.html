@@ -1,103 +1,128 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Code Editor</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
 <header id="header">
     <img src="logo.webp" alt="Logo" id="logo">
     <h1>Code Editor</h1>
 </header>
 
-<div class="block">
+<main>
 
-<!-- ALGEMEEN -->
-<details open>
+    <div class="block">
 
-    <summary><h2>Algemeen</h2></summary>
+        <!-- ALGEMEEN -->
+        <details open>
 
-    <div class="notice">
-        Vul eerst je basisgegevens in.
+            <summary><h2>Algemeen</h2></summary>
+
+            <div class="notice">
+                Vul eerst je basisgegevens in.
+            </div>
+
+            <div class="field">
+                <label for="naam">Naam</label>
+                <input id="naam" placeholder="Naam leerling">
+            </div>
+
+            <div class="field">
+                <label for="klas">Klas</label>
+                <input id="klas" placeholder="Klas leerling">
+            </div>
+
+            <div class="field">
+                <label for="richting">Richting</label>
+                <input id="richting" placeholder="Richting leerling">
+            </div>
+
+            <div class="field">
+                <label for="schooljaar">Schooljaar</label>
+                <input id="schooljaar" placeholder="Schooljaar leerling">
+            </div>
+
+        </details>
+
+        <!-- OPDRACHT -->
+        <details>
+
+            <summary><h2>Opdracht</h2></summary>
+
+            <div class="notice">
+                Neem de opdracht grondig door.
+            </div>
+
+            <div class="field">
+                <label for="omschrijvingText">Omschrijving</label>
+                <textarea id="omschrijvingText" readonly></textarea>
+            </div>
+
+        </details>
+
+        <!-- ANALYSE -->
+        <details>
+
+            <summary><h2>Analyse</h2></summary>
+
+            <div class="notice">
+                Ontwerp hier je IPO-lijst (input, verwerking, output).
+            </div>
+
+            <div class="field">
+                <label for="analyseText">Analyse</label>
+                <textarea id="analyseText"></textarea>
+            </div>
+
+        </details>
+
+        <!-- FEEDBACK -->
+        <details>
+
+            <summary><h2>Feedback</h2></summary>
+
+            <div class="notice">
+                Feedback van de leerkracht.
+            </div>
+
+            <div class="field">
+                <label for="feedbackText">Feedback</label>
+                <textarea id="feedbackText"></textarea>
+            </div>
+
+        </details>
+
+        <!-- HANDLEIDING -->
+        <details>
+
+            <summary><h2>Handleiding</h2></summary>
+
+            <div class="notice">
+                Beschrijf hier hoe de toepassing gebruikt wordt.
+            </div>
+
+            <div class="field">
+                <label for="handleidingText">Handleiding</label>
+                <textarea id="handleidingText"></textarea>
+            </div>
+
+        </details>
+
     </div>
 
-    <div class="field">
-        <label for="naam">Naam</label>
-        <input id="naam" placeholder="Naam leerling">
-    </div>
+</main>
 
-    <div class="field">
-        <label for="klas">Klas</label>
-        <input id="klas" placeholder="Klas leerling">
-    </div>
+<footer>
+    <!-- eventueel progress bar of status -->
+</footer>
 
-    <div class="field">
-        <label for="richting">Richting</label>
-        <input id="richting" placeholder="Richting leerling">
-    </div>
-
-    <div class="field">
-        <label for="schooljaar">Schooljaar</label>
-        <input id="schooljaar" placeholder="Schooljaar leerling">
-    </div>
-
-</details>
-
-<!-- OPDRACHT -->
-<details>
-
-    <summary><h2>Opdracht</h2></summary>
-
-    <div class="notice">
-        Neem de opdracht grondig door.
-    </div>
-
-    <div class="field">
-        <label for="omschrijvingText">Omschrijving</label>
-        <textarea id="omschrijvingText" readonly></textarea>
-    </div>
-
-</details>
-
-<!-- ANALYSE -->
-<details>
-
-    <summary><h2>Analyse</h2></summary>
-
-    <div class="notice">
-        Ontwerp hier je IPO-lijst (input, verwerking, output).
-    </div>
-
-    <div class="field">
-        <label for="analyseText">Analyse</label>
-        <textarea id="analyseText"></textarea>
-    </div>
-
-</details>
-
-<!-- FEEDBACK -->
-<details>
-
-    <summary><h2>Feedback</h2></summary>
-
-    <div class="notice">
-        Feedback van de leerkracht.
-    </div>
-
-    <div class="field">
-        <label for="feedbackText">Feedback</label>
-        <textarea id="feedbackText"></textarea>
-    </div>
-
-</details>
-
-<!-- HANDLEIDING -->
-<details>
-
-    <summary><h2>Handleiding</h2></summary>
-
-    <div class="notice">
-        Beschrijf hier hoe de toepassing gebruikt wordt.
-    </div>
-
-    <div class="field">
-        <label for="handleidingText">Handleiding</label>
-        <textarea id="handleidingText"></textarea>
-    </div>
-
-</details>
-
-</div>
+</body>
+</html>
