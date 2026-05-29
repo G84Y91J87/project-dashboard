@@ -1,81 +1,98 @@
-<!DOCTYPE html>
-<html lang="nl">
+<div class="block">
 
-<head>
+<!-- ALGEMEEN -->
+<details open>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <summary><h2>Algemeen</h2></summary>
 
-    <title>Project Dashboard</title>
-
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-    <!-- TITEL -->
-    <div class="block title-block">
-        <h1>Project Dashboard</h1>
+    <div class="notice">
+        Vul eerst je basisgegevens in.
     </div>
 
-    <!-- VOORTGANG -->
-    <div class="block">
-
-        <h2>Voortgang</h2>
-
-        <strong id="progressText">0%</strong>
-
-        <div class="progress">
-            <div id="progressFill"></div>
-        </div>
-
+    <div class="field">
+        <label for="naam">Naam</label>
+        <input id="naam" placeholder="Naam leerling">
     </div>
 
-    <!-- NAVIGATIE -->
-    <div class="block">
-
-        <h2>Navigatie</h2>
-
-        <div class="tabs">
-
-            <button class="tab active" data-tab="algemeen">
-                Algemeen
-            </button>
-
-            <button class="tab" data-tab="opdracht">
-                Opdracht
-            </button>
-
-            <button class="tab" data-tab="analyse">
-                Analyse
-            </button>
-
-            <button class="tab" data-tab="feedback">
-                Feedback
-            </button>
-
-            <button class="tab" data-tab="handleiding">
-                Handleiding
-            </button>
-
-        </div>
-
+    <div class="field">
+        <label for="klas">Klas</label>
+        <input id="klas" placeholder="Klas leerling">
     </div>
 
-    <!-- CONTENT -->
-    <div class="block">
-
-        <section id="algemeen" class="active"></section>
-        <section id="opdracht"></section>
-        <section id="analyse"></section>
-        <section id="feedback"></section>
-        <section id="handleiding"></section>
-
+    <div class="field">
+        <label for="richting">Richting</label>
+        <input id="richting" placeholder="Richting leerling">
     </div>
 
-    <script src="app.js"></script>
+    <div class="field">
+        <label for="schooljaar">Schooljaar</label>
+        <input id="schooljaar" placeholder="Schooljaar leerling">
+    </div>
 
-</body>
+</details>
 
-</html>
+<!-- OPDRACHT -->
+<details>
+
+    <summary><h2>Opdracht</h2></summary>
+
+    <div class="notice">
+        Neem de opdracht grondig door.
+    </div>
+
+    <div class="field">
+        <label for="omschrijvingText">Omschrijving</label>
+        <textarea id="omschrijvingText" readonly></textarea>
+    </div>
+
+</details>
+
+<!-- ANALYSE -->
+<details>
+
+    <summary><h2>Analyse</h2></summary>
+
+    <div class="notice">
+        Ontwerp hier je IPO-lijst (input, verwerking, output).
+    </div>
+
+    <div class="field">
+        <label for="analyseText">Analyse</label>
+        <textarea id="analyseText"></textarea>
+    </div>
+
+</details>
+
+<!-- FEEDBACK -->
+<details>
+
+    <summary><h2>Feedback</h2></summary>
+
+    <div class="notice">
+        Feedback van de leerkracht.
+    </div>
+
+    <div class="field">
+        <label for="feedbackText">Feedback</label>
+        <textarea id="feedbackText"></textarea>
+    </div>
+
+</details>
+
+<!-- HANDLEIDING -->
+<details>
+
+    <summary><h2>Handleiding</h2></summary>
+
+    <div class="notice">
+        Beschrijf hier hoe de toepassing gebruikt wordt.
+    </div>
+
+    <div class="field">
+        <label for="handleidingText">Handleiding</label>
+        <textarea id="handleidingText"></textarea>
+    </div>
+
+</details>
+
+</div>
