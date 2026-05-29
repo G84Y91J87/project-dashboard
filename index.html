@@ -1,96 +1,47 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header id="header">
-    <img src="logo.webp" alt="Logo" id="logo">
-    <h1>Project Dashboard</h1>
-</header>
-
-<div class="global-progress">
-    <div class="global-fill"></div>
-</div>
+<div class="global-progress"><div class="global-fill"></div></div>
 
 <main>
-    <div class="block">
 
-        <details open>
-            <summary><span class="title">Algemeen</span><span class="check"></span></summary>
-            <div class="notice">Vul eerst je basisgegevens in.</div>
+<details open>
+<summary>Algemeen <span class="check"></span></summary>
+<input placeholder="Naam">
+<input placeholder="Klas">
+<input placeholder="Richting">
+<input placeholder="Schooljaar">
+</details>
 
-            <div class="field">
-                <label for="naam">Naam</label>
-                <input id="naam" placeholder="Naam leerling">
-            </div>
+<details>
+<summary>Opdracht <span class="check"></span></summary>
+<textarea></textarea>
+</details>
 
-            <div class="field">
-                <label for="klas">Klas</label>
-                <input id="klas" placeholder="Klas leerling">
-            </div>
+<details>
+<summary>Analyse <span class="check"></span></summary>
+<textarea></textarea>
+</details>
 
-            <div class="field">
-                <label for="richting">Richting</label>
-                <input id="richting" placeholder="Richting leerling">
-            </div>
+<details>
+<summary>Feedback <span class="check"></span></summary>
+<textarea></textarea>
+</details>
 
-            <div class="field">
-                <label for="schooljaar">Schooljaar</label>
-                <input id="schooljaar" placeholder="Schooljaar leerling">
-            </div>
-        </details>
+<details>
+<summary>Handleiding <span class="check"></span></summary>
+<textarea></textarea>
+</details>
 
-        <details>
-            <summary><span class="title">Opdracht</span><span class="check"></span></summary>
-            <div class="notice">Neem de opdracht grondig door.</div>
-
-            <div class="field">
-                <label for="omschrijvingText">Omschrijving</label>
-                <textarea id="omschrijvingText" readonly></textarea>
-            </div>
-        </details>
-
-        <details>
-            <summary><span class="title">Analyse</span><span class="check"></span></summary>
-            <div class="notice">Ontwerp hier je IPO-lijst.</div>
-
-            <div class="field">
-                <label for="analyseText">Analyse</label>
-                <textarea id="analyseText"></textarea>
-            </div>
-        </details>
-
-        <details>
-            <summary><span class="title">Feedback</span><span class="check"></span></summary>
-            <div class="notice">Feedback van de leerkracht.</div>
-
-            <div class="field">
-                <label for="feedbackText">Feedback</label>
-                <textarea id="feedbackText"></textarea>
-            </div>
-        </details>
-
-        <details>
-            <summary><span class="title">Handleiding</span><span class="check"></span></summary>
-            <div class="notice">Beschrijf hoe de toepassing werkt.</div>
-
-            <div class="field">
-                <label for="handleidingText">Handleiding</label>
-                <textarea id="handleidingText"></textarea>
-            </div>
-        </details>
-
-    </div>
 </main>
-
-<footer id="footer">
-    Built with HTML CSS and JS
-</footer>
 
 <script src="app.js"></script>
 
