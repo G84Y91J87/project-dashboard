@@ -1,13 +1,6 @@
 body{margin:0;font-family:system-ui;background:#f5f5f5}
 
-#header{
-display:flex;
-align-items:center;
-gap:10px;
-padding:15px;
-background:#fff;
-border-bottom:1px solid #ddd;
-}
+#header{display:flex;align-items:center;gap:10px;padding:15px;background:#fff;border-bottom:1px solid #ddd;}
 
 #logo{height:40px}
 
