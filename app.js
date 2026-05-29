@@ -1,13 +1,8 @@
-function updateProgress() {
-    document.querySelectorAll("details").forEach(section => {
-        const fields = section.querySelectorAll("input, textarea");
-        const filled = [...fields].filter(f => f.value.trim()).length;
-        const complete = fields.length && filled === fields.length;
-
-        section.classList.toggle("complete", complete);
-        section.querySelector(".check").textContent = complete ? "✔" : "";
-    });
+function updateProgress(){
+const f=[...document.querySelectorAll("input,textarea")];
+document.querySelector(".global-fill").style.width=
+(f.filter(x=>x.value.trim()).length/f.length*100)+"%";
 }
 
-document.addEventListener("input", updateProgress);
+document.addEventListener("input",updateProgress);
 updateProgress();
