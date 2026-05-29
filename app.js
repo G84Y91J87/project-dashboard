@@ -91,10 +91,6 @@ handleiding.innerHTML = `
 `;
 
 //
-// TAB: FEEDBACK
-//
-
-//
 // TAB WISSELEN
 //
 document.querySelectorAll(".tab").forEach(button => {
