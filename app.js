@@ -28,3 +28,5 @@ function updateProgress(){
 
 document.addEventListener("input", updateProgress);
 updateProgress();
+
+console.log(document.querySelectorAll(".progress-badge"));
