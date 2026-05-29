@@ -1,8 +1,6 @@
 function updateProgress(){
 
-    const sections = document.querySelectorAll("details");
-
-    sections.forEach(section => {
+    document.querySelectorAll("details").forEach(section => {
 
         const fields = section.querySelectorAll(
             "input:not([readonly]), textarea:not([readonly])"
@@ -16,18 +14,18 @@ function updateProgress(){
             ? Math.round((filled / fields.length) * 100)
             : 0;
 
-        const badge = section.querySelector(".progress-badge");
+        const bar = section.querySelector(".progress-fill");
+        const check = section.querySelector(".check");
 
-        if (badge) {
-            badge.textContent = fields.length
-                ? `${percent}%`
-                : "";
+        if (bar) {
+            bar.style.width = percent + "%";
+        }
+
+        if (check) {
+            check.textContent = percent === 100 ? "✔" : "";
         }
     });
 }
 
 document.addEventListener("input", updateProgress);
 updateProgress();
-
-console.log(document.querySelectorAll(".progress-badge"));
-console.log("progress running");
