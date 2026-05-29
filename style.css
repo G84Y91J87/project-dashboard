@@ -55,7 +55,6 @@ details {
 summary {
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
     padding: 14px 16px;
@@ -139,6 +138,7 @@ textarea {
 
 /* PROGRESS BADGE */
 .progress-badge {
+    margin-left: auto;
     font-size: 12px;
     font-weight: 600;
     color: #2563eb;
