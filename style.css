@@ -138,9 +138,33 @@ textarea {
 }
 
 /* PROGRESS BADGE */
-.progress-badge {
+.progress {
+    width: 110px;
+    height: 5px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    overflow: hidden;
     margin-left: auto;
-    font-size: 12px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #3b82f6;
+    border-radius: 999px;
+    transition: width 0.25s ease;
+}
+
+/* checkmark */
+.check {
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #22c55e;
+}
+
+/* title */
+.title {
+    font-size: 15px;
     font-weight: 600;
-    color: #2563eb;
 }
