@@ -3,26 +3,21 @@
 //
 function updateProgress(){
 
-    // Enkel velden die niet readonly zijn
-    const fields = document.querySelectorAll(
-        "input:not([readonly]), textarea:not([readonly])"
-    );
+    const fields = [
+        ...document.querySelectorAll("input"),
+        ...document.querySelectorAll("textarea")
+    ].filter(field => !field.readOnly);
 
-    let filled = 0;
+    const filled = fields.filter(
+        field => field.value.trim() !== ""
+    ).length;
 
-    fields.forEach(field => {
+    const progress = fields.length
+        ? Math.round((filled / fields.length) * 100)
+        : 0;
 
-        if(field.value.trim() !== ""){
-            filled++;
-        }
-
-    });
-
-    const progress = Math.round((filled / fields.length) * 100);
-
-    progressText.textContent = progress + "%";
-
-    progressFill.style.width = progress + "%";
+    progressText.textContent = `${progress}%`;
+    progressFill.style.width = `${progress}%`;
 }
 
 //
