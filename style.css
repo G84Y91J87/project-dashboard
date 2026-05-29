@@ -1,4 +1,4 @@
-/* RESET */
+/* BASIS */
 * {
     box-sizing: border-box;
 }
@@ -24,13 +24,11 @@ body {
 
     position: sticky;
     top: 0;
-    z-index: 10;
 }
 
 #header h1 {
     font-size: 40px;
     margin: 0;
-    font-weight: 600;
 }
 
 #logo {
@@ -44,61 +42,40 @@ main {
     padding: 0 16px;
 }
 
-/* ACCORDION CARD */
+/* ACCORDION */
 details {
     background: white;
-    border-radius: 14px;
     margin-bottom: 14px;
-
     border: 1px solid #e5e7eb;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-
+    border-radius: 14px;
     overflow: hidden;
 }
 
-/* CLICKABLE HEADER */
+/* SUMMARY */
 summary {
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     padding: 14px 16px;
-
     font-weight: 600;
-    font-size: 15px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
     background: #f9fafb;
-
-    transition: background 0.15s;
 }
 
-/* hover = duidelijk klikbaar */
 summary:hover {
     background: #f3f4f6;
 }
 
-/* remove default marker */
 summary::-webkit-details-marker {
     display: none;
 }
 
-/* titel in summary */
-summary h2 {
-    margin: 0;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-/* pijltje indicator */
 summary::after {
     content: "▸";
-    font-size: 14px;
-    transition: transform 0.2s;
+    transition: 0.2s;
 }
 
-/* open state */
 details[open] summary::after {
     transform: rotate(90deg);
 }
@@ -112,16 +89,12 @@ details > *:not(summary) {
 .notice {
     background: #eff6ff;
     border-left: 4px solid #3b82f6;
-
     padding: 10px 12px;
     border-radius: 10px;
-
-    font-size: 14px;
-
     margin-bottom: 12px;
 }
 
-/* FIELDS */
+/* FORM */
 .field {
     margin-top: 12px;
 }
@@ -131,23 +104,15 @@ label {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 6px;
-    color: #374151;
 }
 
-/* INPUTS */
 input,
 textarea {
     width: 100%;
     padding: 10px 12px;
-
     border: 1px solid #d1d5db;
     border-radius: 10px;
-
-    font-size: 14px;
-    background: #fff;
-
-    transition: 0.15s;
-    font-family: inherit;
+    font: inherit;
 }
 
 input:focus,
@@ -157,7 +122,6 @@ textarea:focus {
     box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
 }
 
-/* TEXTAREA */
 textarea {
     min-height: 110px;
     resize: vertical;
@@ -167,10 +131,8 @@ textarea {
 #footer {
     text-align: center;
     padding: 14px;
-
     font-size: 12px;
     color: #6b7280;
-
-    border-top: 1px solid #e5e7eb;
     background: white;
+    border-top: 1px solid #e5e7eb;
 }
