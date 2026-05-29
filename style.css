@@ -1,109 +1,143 @@
+/* RESET */
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f1f5f9;
-    color: #1e293b;
+    font-family: system-ui, Arial, sans-serif;
+    background: #f4f6f9;
+    color: #1f2937;
 }
 
-/* LOGO */
-#logo {
-    height: 32px;
-    width: auto;
-}
-
-/* HEADER + FOOTER (zelfde stijl als je app) */
-#header,
-#footer {
+/* HEADER */
+#header {
     display: flex;
     align-items: center;
-    padding: 0 20px;
-    gap: 10px;
+    gap: 12px;
 
-    background: #2f3f38;
-    color: #fff;
+    padding: 16px 24px;
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-/* HEADER detail */
-#header {
-    border-bottom: 2px solid #1f2a25;
-}
-
-/* FOOTER detail */
-#footer {
-    justify-content: center;
-    font-size: 12px;
-    border-top: 1px solid #1f2a25;
-}
-
-/* TITELS */
-h1, h2 {
+#header h1 {
+    font-size: 18px;
     margin: 0;
+    font-weight: 600;
 }
 
-/* ACCORDION CONTAINER */
+#logo {
+    height: 34px;
+}
+
+/* MAIN CONTAINER */
+main {
+    max-width: 900px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+/* ACCORDION CARD */
 details {
-    background: #ffffff;
-    border-radius: 12px;
-    margin: 12px 0;
-    padding: 12px 16px;
+    background: white;
+    border-radius: 14px;
 
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 14px;
+    padding: 14px 18px;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+
+    border: 1px solid #eef0f3;
 }
 
-/* CLICKABLE SUMMARY */
+/* SUMMARY HEADER */
 summary {
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 15px;
+
     list-style: none;
-    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* voorkomt rare marker styling */
 summary::-webkit-details-marker {
     display: none;
 }
 
-/* FIELD BLOCK */
-.field {
-    margin-top: 12px;
+/* SECTION TITLE LOOK */
+summary h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
 }
 
-/* LABELS */
+/* NOTICE */
+.notice {
+    margin-top: 12px;
+
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+
+    padding: 10px 12px;
+    border-radius: 10px;
+
+    font-size: 14px;
+}
+
+/* FORM FIELDS */
+.field {
+    margin-top: 14px;
+}
+
 label {
     display: block;
-    font-weight: bold;
+    font-size: 13px;
+    font-weight: 600;
     margin-bottom: 6px;
+    color: #374151;
 }
 
 /* INPUTS */
 input,
 textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
+    padding: 10px 12px;
 
-    font-family: inherit;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
     font-size: 14px;
+    background: #fff;
+
+    transition: 0.15s;
 }
 
-/* FOCUS STATE (belangrijk voor UX) */
 input:focus,
 textarea:focus {
     outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
 }
 
-/* NOTICE BOX */
-.notice {
-    background: #e0f2fe;
-    border-left: 4px solid #2563eb;
-    padding: 10px 12px;
-    border-radius: 8px;
-    margin-top: 10px;
+/* TEXTAREA */
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* FOOTER */
+#footer {
+    text-align: center;
+    padding: 14px;
+
+    font-size: 12px;
+    color: #6b7280;
 }
