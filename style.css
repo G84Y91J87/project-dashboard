@@ -1,81 +1,127 @@
-<!DOCTYPE html>
-<html lang="nl">
+/* ALGEMEEN */
+*{
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
 
-<head>
+/* PAGINA */
+body{
+    margin:0;
+    padding:24px;
+    background:#f1f5f9;
+    color:#1e293b;
+}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* WITTE BLOKKEN */
+.block{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:16px;
+}
 
-    <title>Project Dashboard</title>
+/* TITEL BLOK */
+.title-block{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
 
-    <link rel="stylesheet" href="style.css">
+.title-block h1{
+    margin:0;
+}
 
-</head>
+/* TITELS */
+h2{
+    margin-top:0;
+}
 
-<body>
+/* PROGRESS BAR */
+.progress{
+    height:12px;
+    background:#ddd;
+    border-radius:999px;
+    overflow:hidden;
+    margin-top:10px;
+}
 
-    <!-- TITEL -->
-    <div class="block title-block">
-        <h1>Project Dashboard</h1>
-    </div>
+/* BLAUWE BALK */
+.progress div{
+    height:100%;
+    width:0%;
+    background:#2563eb;
+    transition:.2s;
+}
 
-    <!-- VOORTGANG -->
-    <div class="block">
+/* TAB KNOPPEN */
+.tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
 
-        <h2>Voortgang</h2>
+/* KNOPPEN */
+.tabs button,
+.actions button{
+    border:none;
+    padding:10px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    background:#e2e8f0;
+    font-weight:bold;
+}
 
-        <strong id="progressText">0%</strong>
+/* ACTIEVE TAB */
+.tabs button.active{
+    background:#2563eb;
+    color:#fff;
+}
 
-        <div class="progress">
-            <div id="progressFill"></div>
-        </div>
+/* FORMULIER ELEMENTEN */
+input,
+textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+}
 
-    </div>
+/* TEXTAREA */
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
 
-    <!-- NAVIGATIE -->
-    <div class="block">
+/* VELD */
+.field{
+    margin-bottom:16px;
+}
 
-        <h2>Navigatie</h2>
+/* LABEL */
+.field label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+}
 
-        <div class="tabs">
+/* MELDING */
+.notice{
+    background:#e0f2fe;
+    border-left:4px solid #2563eb;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:16px;
+}
 
-            <button class="tab active" data-tab="algemeen">
-                Algemeen
-            </button>
+/* VERBERG SECTIES */
+section{
+    display:none;
+}
 
-            <button class="tab" data-tab="opdracht">
-                Opdracht
-            </button>
-
-            <button class="tab" data-tab="analyse">
-                Analyse
-            </button>
-
-            <button class="tab" data-tab="feedback">
-                Feedback
-            </button>
-
-            <button class="tab" data-tab="handleiding">
-                Handleiding
-            </button>
-
-        </div>
-
-    </div>
-
-    <!-- CONTENT -->
-    <div class="block">
-
-        <section id="algemeen" class="active"></section>
-        <section id="opdracht"></section>
-        <section id="analyse"></section>
-        <section id="feedback"></section>
-        <section id="handleiding"></section>
-
-    </div>
-
-    <script src="script.js"></script>
-
-</body>
-
-</html>
+/* TOON ACTIEVE SECTIE */
+section.active{
+    display:block;
+}
