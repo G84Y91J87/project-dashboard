@@ -30,3 +30,4 @@ document.addEventListener("input", updateProgress);
 updateProgress();
 
 console.log(document.querySelectorAll(".progress-badge"));
+console.log("progress running");
