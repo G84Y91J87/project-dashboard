@@ -41,6 +41,18 @@ details.active{
     box-shadow:0 0 0 2px rgba(59,130,246,.15);
 }
 
+details.complete {
+    border-color: #22c55e;
+}
+
+details.complete summary {
+    background: #dcfce7;
+}
+
+details.complete .check {
+    color: #22c55e;
+}
+
 summary{
     display:flex;
     align-items:center;
