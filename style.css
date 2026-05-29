@@ -16,9 +16,10 @@ body {
     align-items: center;
     gap: 12px;
 
-    padding: 16px 24px;
-    background: white;
+    padding: 22px 24px;
+    min-height: 80px;
 
+    background: white;
     border-bottom: 1px solid #e5e7eb;
 
     position: sticky;
@@ -27,7 +28,7 @@ body {
 }
 
 #header h1 {
-    font-size: 18px;
+    font-size: 20px;
     margin: 0;
     font-weight: 600;
 }
@@ -36,7 +37,7 @@ body {
     height: 34px;
 }
 
-/* MAIN CONTAINER */
+/* MAIN */
 main {
     max-width: 900px;
     margin: 24px auto;
@@ -47,42 +48,68 @@ main {
 details {
     background: white;
     border-radius: 14px;
-
     margin-bottom: 14px;
-    padding: 14px 18px;
 
+    border: 1px solid #e5e7eb;
     box-shadow: 0 2px 10px rgba(0,0,0,0.04);
 
-    border: 1px solid #eef0f3;
+    overflow: hidden;
 }
 
-/* SUMMARY HEADER */
+/* CLICKABLE HEADER */
 summary {
     cursor: pointer;
+
+    padding: 14px 16px;
+
     font-weight: 600;
     font-size: 15px;
 
-    list-style: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    background: #f9fafb;
+
+    transition: background 0.15s;
 }
 
+/* hover = duidelijk klikbaar */
+summary:hover {
+    background: #f3f4f6;
+}
+
+/* remove default marker */
 summary::-webkit-details-marker {
     display: none;
 }
 
-/* SECTION TITLE LOOK */
+/* titel in summary */
 summary h2 {
     margin: 0;
     font-size: 15px;
     font-weight: 600;
 }
 
+/* pijltje indicator */
+summary::after {
+    content: "▸";
+    font-size: 14px;
+    transition: transform 0.2s;
+}
+
+/* open state */
+details[open] summary::after {
+    transform: rotate(90deg);
+}
+
+/* CONTENT */
+details > *:not(summary) {
+    padding: 14px 16px;
+}
+
 /* NOTICE */
 .notice {
-    margin-top: 12px;
-
     background: #eff6ff;
     border-left: 4px solid #3b82f6;
 
@@ -90,11 +117,13 @@ summary h2 {
     border-radius: 10px;
 
     font-size: 14px;
+
+    margin-bottom: 12px;
 }
 
-/* FORM FIELDS */
+/* FIELDS */
 .field {
-    margin-top: 14px;
+    margin-top: 12px;
 }
 
 label {
@@ -118,6 +147,7 @@ textarea {
     background: #fff;
 
     transition: 0.15s;
+    font-family: inherit;
 }
 
 input:focus,
@@ -140,4 +170,7 @@ textarea {
 
     font-size: 12px;
     color: #6b7280;
+
+    border-top: 1px solid #e5e7eb;
+    background: white;
 }
