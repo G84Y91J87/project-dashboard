@@ -136,3 +136,10 @@ textarea {
     background: white;
     border-top: 1px solid #e5e7eb;
 }
+
+/* PROGRESS BADGE */
+.progress-badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: #2563eb;
+}

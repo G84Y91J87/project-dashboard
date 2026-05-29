@@ -1,19 +1,29 @@
 function updateProgress(){
 
-    const fields = document.querySelectorAll(
-        "input:not([readonly]), textarea:not([readonly])"
-    );
+    const sections = document.querySelectorAll("details");
 
-    const filled = [...fields]
-        .filter(f => f.value.trim() !== "")
-        .length;
+    sections.forEach(section => {
 
-    const percent = fields.length
-        ? Math.round((filled / fields.length) * 100)
-        : 0;
+        const fields = section.querySelectorAll(
+            "input:not([readonly]), textarea:not([readonly])"
+        );
 
-    progressText.textContent = percent + "%";
-    progressFill.style.width = percent + "%";
+        const filled = [...fields]
+            .filter(f => f.value.trim() !== "")
+            .length;
+
+        const percent = fields.length
+            ? Math.round((filled / fields.length) * 100)
+            : 0;
+
+        const badge = section.querySelector(".progress-badge");
+
+        if (badge) {
+            badge.textContent = fields.length
+                ? `${percent}%`
+                : "";
+        }
+    });
 }
 
 document.addEventListener("input", updateProgress);
